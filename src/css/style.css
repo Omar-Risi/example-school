@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
 
-  font-family: sans-serif;
+  font-family: 'montserrat', sans-serif;
 }
 
 :root {
@@ -14,6 +14,8 @@
 body {
 
   background-color: whitesmoke;
+  height: 100vh;
+  overflow-y: hidden;
 
 }
 
@@ -85,11 +87,74 @@ nav ul li a {
   font-size: 1.4rem;
 }
 
+main {
+  animation: load-main;
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+  animation-delay: 50ms;
+}
+
+.main-content {
+  color: #fff;
+  position: relative;
+
+}
+
+.main-content img {
+  height: 90vh;
+  width: 100%;
+  position: absolute;
+  z-index: -10000;
+  filter: brightness(50%);
+}
+
+.main-content div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  font-size: 2rem;
+}
+
+.main-content div button {
+  background-color: var(--color-main);
+  border: 2px solid transparent;
+  padding: 1.2rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  transition: 150ms ease-in;
+  cursor: pointer;
+}
+
+.main-content div button:hover {
+  background-color: var(--color-highlight);
+  border-radius: 15px;
+  scale: 1.15;
+}
 
 /* Animations */
 @keyframes load-nav {
   0% {
     transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  80% {
+    opacity: .5;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes load-main {
+  0% {
+    transform: translateX(100%);
     opacity: 0;
   }
 
